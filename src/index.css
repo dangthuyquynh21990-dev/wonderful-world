@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  body {
+    @apply bg-gray-50 min-h-screen m-0;
+  }
+  #root {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    border: none;
+    min-height: 100vh;
+    display: block;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-500 text-white rounded-xl font-semibold hover:bg-blue-600 transition-all duration-200 shadow-md hover:shadow-lg active:scale-95;
+  }
+  .btn-secondary {
+    @apply px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all duration-200 shadow-sm active:scale-95;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-md p-6 transition-all duration-200;
+  }
+  .card-hover {
+    @apply hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+  }
+  .word-chip {
+    @apply inline-block px-3 py-1.5 rounded-xl text-sm font-semibold cursor-pointer select-none transition-all duration-150 active:scale-95;
+  }
+}
+
+/* Countdown timer bar animation */
+@keyframes countdown-bar {
+  from { width: 100%; }
+  to { width: 0%; }
+}
+.countdown-bar {
+  animation: countdown-bar linear forwards;
+}
+
+/* SVG circle countdown */
+@keyframes svg-countdown {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 283; }
+}
+.svg-countdown {
+  animation: svg-countdown linear forwards;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+/* Flash animations */
+@keyframes flash-green {
+  0%, 100% { opacity: 1; }
+  50% { background-color: #86efac; }
+}
+@keyframes flash-red {
+  0%, 100% { opacity: 1; }
+  50% { background-color: #fca5a5; }
+}
+.flash-correct { animation: flash-green 0.4s ease; }
+.flash-wrong { animation: flash-red 0.4s ease; }
