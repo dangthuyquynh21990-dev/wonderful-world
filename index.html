@@ -7,6 +7,14 @@
     <title>Wonderful World 5 - English Learning</title>
   </head>
   <body>
+    <script>
+    window.onerror = function(msg, src, line, col, err) {
+      document.body.innerHTML = '<div style="color:red;padding:20px;font-size:14px;word-break:break-all;background:#fff"><b>Loi JS:</b><br>' + msg + '<br>' + src + '<br>line:' + line + '</div>';
+    };
+    window.addEventListener('unhandledrejection', function(e) {
+      document.body.innerHTML = '<div style="color:red;padding:20px;font-size:14px;word-break:break-all;background:#fff"><b>Promise loi:</b><br>' + (e.reason && e.reason.stack ? e.reason.stack : e.reason || 'unknown') + '</div>';
+    });
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
